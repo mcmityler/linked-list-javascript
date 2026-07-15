@@ -66,6 +66,7 @@ class LinkedList {
     return lastHead.value;
   }
   contains(myValue) {
+    if (this.head === undefined) return;
     let currentNode = this.head;
     while (currentNode !== null) {
       if (currentNode.value === myValue) {
@@ -74,6 +75,20 @@ class LinkedList {
       currentNode = currentNode.nextNode;
     }
     return false;
+  }
+  findIndex(myValue) {
+    if (this.head === undefined) return;
+
+    let currentNode = this.head;
+    let index = 0;
+    while (currentNode !== null) {
+      if (currentNode.value === myValue) {
+        return index;
+      }
+      currentNode = currentNode.nextNode;
+      index++;
+    }
+    return -1;
   }
 }
 class Node {
@@ -92,9 +107,6 @@ class Node {
 const linkList = new LinkedList();
 console.log(linkList);
 console.log(linkList);
-linkList.append(2);
-linkList.append(6);
-linkList.append(23);
 console.log(linkList.size());
 console.log(linkList.getHeadValue());
 console.log(linkList.getTailValue());
@@ -103,3 +115,4 @@ console.log(linkList.pop());
 console.log(linkList.getHeadValue());
 console.log(linkList.getTailValue());
 console.log(linkList.contains(6));
+console.log(linkList.findIndex(52));
