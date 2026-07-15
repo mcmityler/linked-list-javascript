@@ -1,12 +1,12 @@
 class LinkedList {
   constructor() {
-    this.head = null;
-    this.tail = null;
+    this.head = undefined;
+    this.tail = undefined;
   }
   append(myValue) {
     const newNode = new Node();
     newNode.setValue(myValue);
-    if (this.head === null) {
+    if (this.head === undefined) {
       this.head = newNode;
       this.tail = newNode;
     } else {
@@ -17,7 +17,7 @@ class LinkedList {
   prepend(myValue) {
     const newNode = new Node();
     newNode.setValue(myValue);
-    if (this.head === null) {
+    if (this.head === undefined) {
       this.head = newNode;
       this.tail = newNode;
     } else {
@@ -35,21 +35,27 @@ class LinkedList {
     return size;
   }
   getHeadValue() {
+    if (this.head === undefined) return;
+
     return this.head.value;
   }
   getTailValue() {
+    if (this.tail === undefined) return;
+
     return this.tail.value;
   }
   at(index) {
+    if (this.head === undefined) return;
     let currentNode = this.head;
     for (let i = 0; i < index; i++) {
       if (currentNode.nextNode === null) {
-        return null;
+        return undefined;
       }
       currentNode = currentNode.nextNode;
     }
     return currentNode.value;
   }
+  pop() {}
 }
 class Node {
   constructor() {
@@ -66,9 +72,6 @@ class Node {
 
 const linkList = new LinkedList();
 console.log(linkList);
-linkList.append(3);
-linkList.append(32);
-linkList.prepend(2);
 console.log(linkList);
 console.log(linkList.size());
 console.log(linkList.getHeadValue());
