@@ -40,6 +40,16 @@ class LinkedList {
   getTailValue() {
     return this.tail.value;
   }
+  at(index) {
+    let currentNode = this.head;
+    for (let i = 0; i < index; i++) {
+      if (currentNode.nextNode === null) {
+        return null;
+      }
+      currentNode = currentNode.nextNode;
+    }
+    return currentNode.value;
+  }
 }
 class Node {
   constructor() {
@@ -63,3 +73,4 @@ console.log(linkList);
 console.log(linkList.size());
 console.log(linkList.getHeadValue());
 console.log(linkList.getTailValue());
+console.log(linkList.at(5));
