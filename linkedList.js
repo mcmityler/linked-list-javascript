@@ -55,7 +55,16 @@ class LinkedList {
     }
     return currentNode.value;
   }
-  pop() {}
+  pop() {
+    if (this.head === undefined) return;
+    const lastHead = this.head;
+    this.head = this.head.nextNode;
+    if (this.head === null) {
+      this.head = undefined;
+      this.tail = undefined;
+    }
+    return lastHead.value;
+  }
 }
 class Node {
   constructor() {
@@ -73,7 +82,13 @@ class Node {
 const linkList = new LinkedList();
 console.log(linkList);
 console.log(linkList);
+linkList.append(2);
+linkList.append(6);
+linkList.append(23);
 console.log(linkList.size());
 console.log(linkList.getHeadValue());
 console.log(linkList.getTailValue());
-console.log(linkList.at(5));
+console.log(linkList.at(1));
+console.log(linkList.pop());
+console.log(linkList.getHeadValue());
+console.log(linkList.getTailValue());
