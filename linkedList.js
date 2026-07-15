@@ -90,6 +90,18 @@ class LinkedList {
     }
     return -1;
   }
+  toString() {
+    if (this.head === undefined) return "";
+
+    let listString = "";
+    let currentNode = this.head;
+    while (currentNode !== null) {
+      listString += `( ${currentNode.value} ) -> `;
+      currentNode = currentNode.nextNode;
+    }
+    listString += `null`;
+    return listString;
+  }
 }
 class Node {
   constructor() {
@@ -107,6 +119,10 @@ class Node {
 const linkList = new LinkedList();
 console.log(linkList);
 console.log(linkList);
+linkList.append(2);
+linkList.append(3);
+linkList.append(6);
+linkList.append(52);
 console.log(linkList.size());
 console.log(linkList.getHeadValue());
 console.log(linkList.getTailValue());
@@ -116,3 +132,4 @@ console.log(linkList.getHeadValue());
 console.log(linkList.getTailValue());
 console.log(linkList.contains(6));
 console.log(linkList.findIndex(52));
+console.log(linkList.toString());
