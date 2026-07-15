@@ -44,10 +44,10 @@ class LinkedList {
 
     return this.tail.value;
   }
-  at(index) {
+  at(myIndex) {
     if (this.head === undefined) return;
     let currentNode = this.head;
-    for (let i = 0; i < index; i++) {
+    for (let i = 0; i < myIndex; i++) {
       if (currentNode.nextNode === null) {
         return undefined;
       }
@@ -64,6 +64,16 @@ class LinkedList {
       this.tail = undefined;
     }
     return lastHead.value;
+  }
+  contains(myValue) {
+    let currentNode = this.head;
+    while (currentNode !== null) {
+      if (currentNode.value === myValue) {
+        return true;
+      }
+      currentNode = currentNode.nextNode;
+    }
+    return false;
   }
 }
 class Node {
@@ -92,3 +102,4 @@ console.log(linkList.at(1));
 console.log(linkList.pop());
 console.log(linkList.getHeadValue());
 console.log(linkList.getTailValue());
+console.log(linkList.contains(6));
