@@ -126,6 +126,21 @@ class LinkedList {
       currentNode = newNode;
     }
   }
+  removeAt(index) {
+    if (index < 0 || index >= this.size()) return "Out of Range";
+
+    let currentNode = this.head;
+    let previousNode = null;
+    for (let i = 0; i < index; i++) {
+      previousNode = currentNode;
+      currentNode = currentNode.nextNode;
+    }
+    if (previousNode === null) {
+      this.pop();
+      return;
+    }
+    previousNode.nextNode = currentNode.nextNode;
+  }
 }
 class Node {
   constructor() {
@@ -157,4 +172,8 @@ console.log(linkList.getTailValue());
 console.log(linkList.contains(6));
 console.log(linkList.findIndex(52));
 console.log(linkList.insertAt(3, 233, 3, 4));
+console.log(linkList.toString());
+
+console.log(linkList.removeAt(5));
+
 console.log(linkList.toString());
