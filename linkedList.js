@@ -102,6 +102,30 @@ class LinkedList {
     listString += `null`;
     return listString;
   }
+  insertAt(index, ...values) {
+    const listSize = this.size();
+    if (index < 0 || index > listSize) return "Out of Range";
+    if (index === 0) {
+      for (let i = values.length - 1; i >= 0; i--) {
+        const newNode = new Node();
+        newNode.setValue(values[i]);
+        newNode.nextNode = this.head;
+        this.head = newNode;
+      }
+      return;
+    }
+    let currentNode = this.head;
+    for (let i = 1; i < index; i++) {
+      currentNode = currentNode.nextNode;
+    }
+    for (let j = 0; j < values.length; j++) {
+      const newNode = new Node();
+      newNode.setValue(values[j]);
+      newNode.nextNode = currentNode.nextNode;
+      currentNode.nextNode = newNode;
+      currentNode = newNode;
+    }
+  }
 }
 class Node {
   constructor() {
@@ -132,4 +156,5 @@ console.log(linkList.getHeadValue());
 console.log(linkList.getTailValue());
 console.log(linkList.contains(6));
 console.log(linkList.findIndex(52));
+console.log(linkList.insertAt(3, 233, 3, 4));
 console.log(linkList.toString());
