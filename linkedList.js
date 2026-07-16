@@ -152,37 +152,3 @@ class Node {
     this.nextNode = myNextNode;
   }
 }
-
-// const linkList = new LinkedList();
-// console.log(linkList);
-// console.log(linkList);
-// linkList.append(2);
-// linkList.append(3);
-// linkList.append(6);
-// linkList.append(52);
-// console.log(linkList.size());
-// console.log(linkList.getHeadValue());
-// console.log(linkList.getTailValue());
-// console.log(linkList.at(1));
-// console.log(linkList.pop());
-// console.log(linkList.getHeadValue());
-// console.log(linkList.getTailValue());
-// console.log(linkList.contains(6));
-// console.log(linkList.findIndex(52));
-// console.log(linkList.insertAt(3, 233, 3, 4));
-// console.log(linkList.toString());
-
-// console.log(linkList.removeAt(5));
-
-// console.log(linkList.toString());
-
-// const list = new LinkedList();
-
-// list.append("dog");
-// list.append("cat");
-// list.append("parrot");
-// list.append("hamster");
-// list.append("snake");
-// list.append("turtle");
-
-// console.log(list.toString());
