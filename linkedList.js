@@ -21,7 +21,7 @@ export class LinkedList {
       this.head = newNode;
       this.tail = newNode;
     } else {
-      newNode.nextNode = this.head;
+      newNode.setNextNode(this.head);
       this.head = newNode;
     }
   }
@@ -35,14 +35,10 @@ export class LinkedList {
     return count;
   }
   getHeadValue() {
-    if (this.head === undefined) return;
-
-    return this.head.value;
+    return this.head === undefined ? undefined : this.head.value;
   }
   getTailValue() {
-    if (this.tail === undefined) return;
-
-    return this.tail.value;
+    return this.tail === undefined ? undefined : this.tail.value;
   }
   at(myIndex) {
     if (this.head === undefined || myIndex < 0) return;
@@ -110,7 +106,7 @@ export class LinkedList {
       for (let i = values.length - 1; i >= 0; i--) {
         const newNode = new Node();
         newNode.setValue(values[i]);
-        newNode.nextNode = this.head;
+        newNode.setNextNode(this.head);
         this.head = newNode;
       }
       return;
@@ -122,8 +118,8 @@ export class LinkedList {
     for (let j = 0; j < values.length; j++) {
       const newNode = new Node();
       newNode.setValue(values[j]);
-      newNode.nextNode = currentNode.nextNode;
-      currentNode.nextNode = newNode;
+      newNode.setNextNode(currentNode.nextNode);
+      currentNode.setNextNode(newNode);
       currentNode = newNode;
     }
   }
@@ -141,7 +137,7 @@ export class LinkedList {
       this.pop();
       return;
     }
-    previousNode.nextNode = currentNode.nextNode;
+    previousNode.setNextNode(currentNode.nextNode);
   }
 }
 class Node {
