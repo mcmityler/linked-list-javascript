@@ -45,7 +45,7 @@ export class LinkedList {
     return this.tail.value;
   }
   at(myIndex) {
-    if (this.head === undefined) return;
+    if (this.head === undefined || myIndex < 0) return;
     let currentNode = this.head;
     for (let i = 0; i < myIndex; i++) {
       if (currentNode.nextNode === null) {
@@ -66,7 +66,7 @@ export class LinkedList {
     return lastHead.value;
   }
   contains(myValue) {
-    if (this.head === undefined) return;
+    if (this.head === undefined) return false;
     let currentNode = this.head;
     while (currentNode !== null) {
       if (currentNode.value === myValue) {
@@ -77,7 +77,7 @@ export class LinkedList {
     return false;
   }
   findIndex(myValue) {
-    if (this.head === undefined) return;
+    if (this.head === undefined) return -1;
 
     let currentNode = this.head;
     let index = 0;
@@ -103,6 +103,7 @@ export class LinkedList {
     return listString;
   }
   insertAt(index, ...values) {
+    if (this.head === undefined) return;
     const listSize = this.size();
     if (index < 0 || index > listSize) return "Out of Range";
     if (index === 0) {
@@ -127,6 +128,7 @@ export class LinkedList {
     }
   }
   removeAt(index) {
+    if (this.head === undefined) return;
     if (index < 0 || index >= this.size()) return "Out of Range";
 
     let currentNode = this.head;
